@@ -16,7 +16,7 @@ var (
 	strict = flag.Bool("strict", false, "Enforce that no line exceeds the specified width")
 )
 
-// Run textwrap and return the exit code.
+// Run wordwrap and return the exit code.
 func Run() int {
 	if err := wrapFiles(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
