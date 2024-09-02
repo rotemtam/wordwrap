@@ -16,6 +16,7 @@ var (
 	strict = flag.Bool("strict", false, "Enforce that no line exceeds the specified width")
 )
 
+// Run textwrap and return the exit code.
 func Run() int {
 	if err := wrapFiles(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
@@ -36,27 +37,28 @@ func wrapFiles() error {
 		*path = cwd
 	}
 	// Process files in the specified or default directory
-	return filepath.Walk(*path, func(path string, info os.FileInfo, err error) error {
+	return filepath.Walk(*path, handleFile)
+}
+
+func handleFile(path string, info os.FileInfo, err error) error {
+	if err != nil {
+		return err
+	}
+	// Process only .txt files
+	if !info.IsDir() && strings.HasSuffix(info.Name(), ".txt") {
+		f, err := os.ReadFile(path)
 		if err != nil {
-			return err
+			return fmt.Errorf("error reading file: %w", err)
 		}
-		// Process only .txt files
-		if !info.IsDir() && strings.HasSuffix(info.Name(), ".txt") {
-			f, err := os.ReadFile(path)
-			if err != nil {
-				return fmt.Errorf("error reading file: %w", err)
+		wrapped := wordwrap.WrapString(string(f), *width)
+		if *strict {
+			if err := validateLen(wrapped); err != nil {
+				return fmt.Errorf("file %s: %w", path, err)
 			}
-			wrapped := wordwrap.WrapString(string(f), *width)
-			fmt.Println("validating strict", *strict)
-			if *strict {
-				if err := validateLen(wrapped); err != nil {
-					return fmt.Errorf("file %s: %w", path, err)
-				}
-			}
-			return os.WriteFile(path, []byte(wrapped), os.ModePerm)
 		}
-		return nil
-	})
+		return os.WriteFile(path, []byte(wrapped), os.ModePerm)
+	}
+	return nil
 }
 
 func validateLen(wrapped string) error {
