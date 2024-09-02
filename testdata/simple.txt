@@ -1,0 +1,18 @@
+wordwrap -path p1.txt
+
+! stderr .
+
+cmp p1.txt p1.wrapped
+
+exec cat dont-touch.txt
+stdout 'This file shouldn''t be modified, because we invoke wordwrap with a path argument.'
+
+-- p1.txt --
+Don't communicate by sharing memory, share memory by communicating.
+
+-- p1.wrapped --
+Don't communicate by sharing memory,
+share memory by communicating.
+
+-- dont-touch.txt --
+This file shouldn't be modified, because we invoke wordwrap with a path argument.
