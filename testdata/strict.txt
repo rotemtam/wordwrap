@@ -6,12 +6,6 @@ cmp poppins.txt poppins.wrapped
 -- poppins.txt --
 It's supercalifragilisticexpialidocious
 Even though the sound of it is something quite atrocious
-If you say it loud enough you'll always sound precocious
-Supercalifragilisticexpialidocious
-Um-dittle-ittl-um-dittle-I
-Um-dittle-ittl-um-dittle-I
-Um-dittle-ittl-um-dittle-I
-Um-dittle-ittl-um-dittle-I
 -- poppins.wrapped --
 It's
 supercalifragilisticexpialidocious
@@ -19,11 +13,3 @@ Even though the
 sound of it is
 something quite
 atrocious
-If you say it loud
-enough you'll always
-sound precocious
-Supercalifragilisticexpialidocious
-Um-dittle-ittl-um-dittle-I
-Um-dittle-ittl-um-dittle-I
-Um-dittle-ittl-um-dittle-I
-Um-dittle-ittl-um-dittle-I
