@@ -4,11 +4,11 @@ skip
 stderr 'line 2 exceeds specified width 20'
 
 wordwrap -path poppins.txt -width 20
-cmp poppins.txt poppins.wrapped
+cmp poppins.txt poppins.golden
 -- poppins.txt --
 It's supercalifragilisticexpialidocious
 Even though the sound of it is something quite atrocious
--- poppins.wrapped --
+-- poppins.golden --
 It's
 supercalifragilisticexpialidocious
 Even though the

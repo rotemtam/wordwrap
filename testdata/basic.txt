@@ -1,11 +1,11 @@
 wordwrap
 
-cmp basic.txt basic.wrapped
+cmp basic.txt basic.golden
 
 -- basic.txt --
 This is a text file with some text in it. To demonstrate wordwrap, it has more than 40 chars.
 
--- basic.wrapped --
+-- basic.golden --
 This is a text file with some text in
 it. To demonstrate wordwrap, it has more
 than 40 chars.
