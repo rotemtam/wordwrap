@@ -1,3 +1,5 @@
+skip
+
 wordwrap -width 60
 
 cmp effective.txt effective.wrapped

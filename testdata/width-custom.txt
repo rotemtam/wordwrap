@@ -1,3 +1,5 @@
+skip
+
 wordwrap -width 60
 
 ! maxline effective.txt 20

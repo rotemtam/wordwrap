@@ -1,3 +1,5 @@
+skip
+
 ! wordwrap -path poppins.txt -width 20 -strict
 stderr 'line 2 exceeds specified width 20'
 

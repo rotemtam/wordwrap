@@ -1,0 +1,10 @@
+wordwrap
+
+cp basic.txt basic.wrapped
+
+-- basic.txt --
+This is a text file with some text in it. To demonstrate wordwrap, it has more than 40 chars.
+
+-- basic.wrapped --
+This is a text file with some text in it. To demonstrate
+wordwrap, it has more than 40 chars.

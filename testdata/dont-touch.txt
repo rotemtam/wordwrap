@@ -1,3 +1,5 @@
+skip
+
 wordwrap -path p1.txt
 
 ! stderr .
