@@ -19,9 +19,10 @@ func TestMain(m *testing.M) {
 func TestScript(t *testing.T) {
 	testscript.Run(t, testscript.Params{
 		Dir: "testdata",
-		Cmds: map[string]func(ts *testscript.TestScript, neg bool, args []string){
-			"maxline": maxline,
-		},
+
+		//Cmds: map[string]func(ts *testscript.TestScript, neg bool, args []string){
+		//	"maxline": maxline,
+		//},
 	})
 }
 
